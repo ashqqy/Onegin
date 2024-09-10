@@ -10,9 +10,9 @@ int StringsCompare (char* str1, char* str2)
         int c2 = str2[i];
 
         if (c1 != c2)
-            return c2 - c1;
+            return c1 - c2;
 
-        if (c1 == 0)
+        if (c1 == 0 && c2 == 0)
             return 0;
         }
     }

@@ -74,10 +74,18 @@ int main ()
         *(strings_data + i) = {strings_ptr[i], TextStrLen(strings_ptr[i])};
         }
 
-    StructSwap (&strings_data[0], &strings_data[1]);
+// СОРТИРОВКА 1
+
+    for (int i = 0; i < n_strings - 1; i++)
+        {
+        for (int j = i; j < n_strings; j++)
+            {
+            if (StringsCompare (strings_data[i].ptr_str, strings_data[j].ptr_str) > 0)
+                StructSwap (&strings_data[i], &strings_data[j]);
+            }
+        }
     PrintTextFromStruct (strings_data, n_strings, SIZE_PtrAndLenString);
 
-// СОРТИРОВКА 1
 // СОРТИРОВКА 2
 
 // ОСВОБОЖДЕНИЕ ПАМЯТИ
@@ -96,3 +104,5 @@ void StructSwap (PtrAndLenString* struct1, PtrAndLenString* struct2)
     *struct1 = *struct2;
     *struct2 = swap;
     }
+
+// добавить в последнюю строку \n
