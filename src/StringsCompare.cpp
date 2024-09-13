@@ -12,7 +12,7 @@ int StringsCompare (char* str1, char* str2)
         if (c1 != c2)
             return c1 - c2;
 
-        if (c1 == 0 && c2 == 0)
+        if (c1 == 0)
             return 0;
         }
     }

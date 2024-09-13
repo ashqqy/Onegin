@@ -1,6 +1,6 @@
 #ifndef STRINGS_SWAP
 #define STRINGS_SWAP
 
-void StringsSwap (char str1[], char str2[]);
+void DataSwap (void* data1, void* data2, size_t len_data);
 
 #endif //STRINGS_SWAP

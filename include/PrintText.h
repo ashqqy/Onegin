@@ -1,8 +1,9 @@
-#ifndef PRINT_TEXT
-#define PRINT_TEXT
+#ifndef PRINT_TEXT_FROM_STRUCT
+#define PRINT_TEXT_FROM_STRUCT
 
 #include <stdio.h>
+#include "Structs.h"
 
-void PrintText (char* text, size_t size_x, size_t size_y);
+void PrintText (PtrAndLenString* strings_data, size_t n_strings, size_t size_struct);
 
-#endif //PRINT_TEXT
+#endif //PRINT_TEXT_FROM_STRUCT
