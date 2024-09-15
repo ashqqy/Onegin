@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include "Structs.h"
 
-void PrintText (PtrAndLenString* strings_data, size_t n_strings, size_t size_struct);
+void PrintText (TextInfo text_info);
 
 #endif //PRINT_TEXT_FROM_STRUCT

@@ -1,4 +1,4 @@
-#include "./../include/StringsCounter.h"
+#include "StringsCounter.h"
 
 //----------------------------------------------------------------
 

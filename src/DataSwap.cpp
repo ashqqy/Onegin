@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "./../include/DataSwap.h"
+#include "DataSwap.h"
 
 //----------------------------------------------------------------
 
+/// @brief Функция, меняющая местами два блока памяти
+/// @param[in] data1 Указатель на первый блок памяти
+/// @param[in] data2 Указатель на второй блок памяти
+/// @param[in] len_data Размер в байтах блоков памяти
 void DataSwap (void* data1, void* data2, size_t len_data)
     {
     assert (data1 != NULL);

@@ -1,86 +1,68 @@
+/// @mainpage ЕВГЕНИЙ ОНЕГИН 
+
 #include <stdio.h>
 #include <cstdlib>
 #include <assert.h>
 #include <cstring>
 
-#include "./../include/StringsCompare.h"
-#include "./../include/DataSwap.h"
-#include "./../include/Constants.h"
-#include "./../include/Structs.h"
-#include "./../include/PrintText.h"
-#include "./../include/MassiveCreator.h"
-#include "./../include/StringsCounter.h"
+#include "Onegin.h"
 
 //----------------------------------------------------------------
 
-int main ()
+// typedef
+
+//----------------------------------------------------------------
+
+int main () // передавать файл как аргумент !!!!!!!!!!!!!!!!!!!!
     {
+    // создаем структуру с информацией о тексте
+    TextInfo text_info = {};
+
     // создаем указатель на файл
-    FILE* file_input = fopen("./../SmallOnegin.txt", "rb");
+    FILE* file_input = fopen("SmallOnegin.txt", "rb");
     assert (file_input != NULL);
 
-    // читаем файл в массив текст
-    char* text = MassiveCreator (file_input);
+    // читаем файл в массив text
+    char* text = NULL;
+    TextCreator (file_input, &text);
+    assert (text != NULL);
+    // добавляем указатель в общую структуру
+    text_info.text = text; 
 
     /* считаем количество строк (с разделителем \n) в массиве
     и заменяем \n на \0 */
     int n_strings = 0;
-    StringsCounter (text, &n_strings);
+    StringsCounter (text_info.text, &n_strings);
+    // добавиляем к-во строк в общую структуру
+    text_info.n_strings = n_strings; 
 
     /* создаём массив указателей на начало каждой строки
     +1 для указателя на конец последней строки */
-    char** strings_ptr = (char**) calloc (n_strings + 1, sizeof (char*)); 
+    char** strings_ptr = (char**) calloc (text_info.n_strings + 1, sizeof (char*)); 
     assert (strings_ptr != NULL);
-
     // заполняем массив указателей
-    strings_ptr[0] = &text[0]; 
-    char* symb_ptr = &text[0];
-    for (int i = 1; i < n_strings + 1; i++)
-        {
-        while (*symb_ptr != '\0')
-            symb_ptr += 1;
-        strings_ptr[i] = (symb_ptr + 1);
-        symb_ptr += 1;
-        }
+    FillPtrArray (strings_ptr, text, n_strings);
 
-// МАССИВ СТРУКТУР СО СТРОКАМИ ТЕКСТА
-
+    // создаём массив структур с данными каждой строки текста
     PtrAndLenString* strings_data = (PtrAndLenString*) calloc (n_strings, SIZE_PtrAndLenString);
+    // заполняем массив структур
+    FillStringsData (strings_data, strings_ptr, n_strings);
+    text_info.strings_data = strings_data;
 
-    for (int i = 0; i < n_strings; i++)
-        {
-         // считаем длину как разность соседних указателей
-         *(strings_data + i) = {strings_ptr[i], (size_t) (strings_ptr[i + 1] - strings_ptr[i])}; 
-        }
+    // сортируем строки
+    DataSort (text_info);
+    // печатаем отсортированный вариант
+    PrintText (text_info);
 
-// СОРТИРОВКА 1
-
-    for (int i = 0; i < n_strings - 1; i++)
-        {
-        for (int j = i + 1; j < n_strings; j++)
-            {
-            if (StringsCompare (strings_data[i].ptr_str, strings_data[j].ptr_str) > 0)
-                DataSwap (&strings_data[i], &strings_data[j], sizeof (PtrAndLenString*));
-            }
-        }
-    PrintText (strings_data, n_strings, SIZE_PtrAndLenString);
-
-// СОРТИРОВКА 2
-
-// ОСВОБОЖДЕНИЕ ПАМЯТИ
-
-    free (text); text = NULL;
-    free (strings_ptr); strings_ptr = NULL;
-    free (strings_data); strings_data = NULL; 
+    // освобождаем память
+    FreeMem (text_info.text);
+    FreeMem (strings_ptr);
+    FreeMem (text_info.strings_data);
     }
-
-//----------------------------------------------------------------
-
 
 //----------------------------------------------------------------
 
 // fstat
 // сделать пропуск символов
 // make файлы
-// swap функция для любых типов данных (передаем сколько байт менять) - сделано
-// поменять \n на \0 и printf на puts (потому что быстрее) - сделано
+// структура с текстом, количеством строк и массивом указателей
