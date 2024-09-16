@@ -1,16 +1,18 @@
-#include <stdio.h>
+#include <assert.h>
 
 #include "PrintText.h"
-#include "Structs.h"
 
 //----------------------------------------------------------------
 
 /// @brief Функция, печатающая текст из массива
 /// @param text_info Структура с информацией о тексте
-void PrintText (TextInfo text_info)
+/// @param file_output Указатель на файл для вывода
+void PrintText (TextInfo text_info, FILE* file_output)
     {
+    assert (file_output != NULL);
+
     for (int i = 0; i < text_info.n_strings; i++)
-        puts (text_info.strings_data[i].ptr_str);
+        fputs (text_info.strings_data[i].ptr_str, file_output);
     }
 
 //----------------------------------------------------------------

@@ -9,23 +9,19 @@
 
 //----------------------------------------------------------------
 
-// typedef
-
-//----------------------------------------------------------------
-
-int main () // передавать файл как аргумент !!!!!!!!!!!!!!!!!!!!
+int main (int argc, char** argv) // передавать файл как аргумент !!!!!!!!!!!!!!!!!!!!
     {
     // создаем структуру с информацией о тексте
     TextInfo text_info = {};
 
-    // создаем указатель на файл
-    FILE* file_input = fopen("SmallOnegin.txt", "rb");
+    FILE* file_input = fopen(argv[1], "rb"); //"EugeneOnegin.txt"
     assert (file_input != NULL);
 
     // читаем файл в массив text
     char* text = NULL;
     TextCreator (file_input, &text);
     assert (text != NULL);
+    fclose (file_input);
     // добавляем указатель в общую структуру
     text_info.text = text; 
 
@@ -49,10 +45,25 @@ int main () // передавать файл как аргумент !!!!!!!!!!!
     FillStringsData (strings_data, strings_ptr, n_strings);
     text_info.strings_data = strings_data;
 
-    // сортируем строки
-    DataSort (text_info);
-    // печатаем отсортированный вариант
-    PrintText (text_info);
+    // открываем файл для вывода
+    FILE* file_output = fopen ("Onegin_result.txt", "w");
+
+    // сортируем по началу строк
+    DataSort (text_info, StringsCompare);
+    fputs (FIRST_SORT, file_output);
+    PrintText (text_info, file_output);
+
+    // сортируем по концу строк
+    DataSort (text_info, StringsCompareReverse);
+    fputs (SECOND_SORT, file_output);
+    PrintText (text_info, file_output);
+
+    // выводим оригинальный текст
+    fputs (ORIGINAL_TEXT, file_output);
+    PrintOriginalText (text_info, file_output);
+
+    // Закрываем файл
+    fclose (file_output);
 
     // освобождаем память
     FreeMem (text_info.text);
@@ -63,6 +74,5 @@ int main () // передавать файл как аргумент !!!!!!!!!!!
 //----------------------------------------------------------------
 
 // fstat
-// сделать пропуск символов
-// make файлы
-// структура с текстом, количеством строк и массивом указателей
+// сделать документацию
+// qsort

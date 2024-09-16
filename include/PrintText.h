@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include "Structs.h"
 
-void PrintText (TextInfo text_info);
+void PrintText (TextInfo text_info, FILE* file_output);
 
 #endif //PRINT_TEXT_FROM_STRUCT

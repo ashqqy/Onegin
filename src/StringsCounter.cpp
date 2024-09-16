@@ -1,12 +1,15 @@
 #include "StringsCounter.h"
+#include "assert.h"
 
 //----------------------------------------------------------------
 
-/// @brief Функция считает количество строк в массиве и заменяет \n на \0
+/// @brief Функция считает количество строк в массиве и заменяет '\ n' на '\ 0'
 /// @param[in] text Указатель на массив с текстом
 /// @param[out] n_strings Количество строк в массиве
 void StringsCounter (char* text, int* n_strings)
     {
+    assert (text != NULL);
+    
     // считаем количество строк (с разделителем \0) в массиве
     char* symb_ptr = &text[0];
     while (*symb_ptr != '\0')

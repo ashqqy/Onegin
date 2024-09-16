@@ -1,6 +1,8 @@
 #ifndef STRINGS_COMPARE
 #define STRINGS_COMPARE
 
-int StringsCompare (char* str1, char* str2);
+#include "Structs.h"
+
+int StringsCompare (PtrAndLenString str1, PtrAndLenString str2);
 
 #endif //STRINGS_COMPARE

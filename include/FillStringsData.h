@@ -1,7 +1,7 @@
 #ifndef FILL_STRINGS_DATA
 #define FILL_STRINGS_DATA
 
-#include "./../include/Structs.h"
+#include "Structs.h"
 
 void FillStringsData (PtrAndLenString* strings_data, char** strings_ptr, int n_strings);
 

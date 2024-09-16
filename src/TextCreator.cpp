@@ -10,6 +10,8 @@
 /// @param[out] text указатель на начало массива с текстом
 void TextCreator (FILE* file_input, char** text)
     {
+    assert (file_input != NULL);
+    
     // находим размер файла
     fseek (file_input, 0L, SEEK_END); //лучше fstat
     long size_file_input = ftell(file_input);

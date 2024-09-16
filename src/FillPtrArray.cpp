@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "FillPtrArray.h"
 
 //----------------------------------------------------------------
@@ -8,6 +10,9 @@
 /// @param[in] n_strings количество строк в тексте
 void FillPtrArray (char** strings_ptr, char* text, int n_strings)
     {
+    assert (text != NULL);
+    assert (strings_ptr != NULL);
+
     strings_ptr[0] = &text[0]; 
     char* symb_ptr = &text[0];
     for (int i = 1; i < n_strings + 1; ++i) 
