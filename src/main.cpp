@@ -11,63 +11,64 @@
 
 int main (int argc, char** argv)
     {
-    /// создаем структуру с информацией о тексте
+    /// Создаем структуру с информацией о тексте
     TextInfo text_info = {};
 
-    /// открываем файл с входными данными
+    /// Открываем файл с входными данными
     FILE* file_input = fopen(argv[1], "rb"); //"EugeneOnegin.txt"
     assert (file_input != NULL);
 
-    /// читаем файл в массив text
+    /// Читаем файл в массив text
     char* text = NULL;
     TextCreator (file_input, &text);
     assert (text != NULL);
-    /// закрываем файл для ввода
+    /// Закрываем файл с входными данными
     fclose (file_input);
-    /// добавляем указатель на text в общую структуру
+    /// Добавляем указатель на text в общую структуру
     text_info.text = text; 
 
-    /** считаем количество строк (с разделителем \ n) в массиве
+    /** Считаем количество строк (с разделителем \ n) в массиве
     и заменяем \ n на \ 0 */
     int n_strings = 0;
     StringsCounter (text_info.text, &n_strings);
-    /// добавиляем к-во строк в общую структуру
+    /// Добавиляем к-во строк в общую структуру
     text_info.n_strings = n_strings; 
 
-    /** создаём массив указателей на начало каждой строки
+    /** Создаём массив указателей на начало каждой строки
     (+1 для указателя на конец последней строки) */
     char** strings_ptr = (char**) calloc (text_info.n_strings + 1, sizeof (char*)); 
     assert (strings_ptr != NULL);
-    /// заполняем массив указателей
+    /// Заполняем массив указателей
     FillPtrArray (strings_ptr, text, n_strings);
 
-    /// создаём массив структур с данными каждой строки текста
+    /// Создаём массив структур с данными каждой строки текста
     PtrAndLenString* strings_data = (PtrAndLenString*) calloc (n_strings, SIZE_PtrAndLenString);
-    /// заполняем массив структур
+    /// Заполняем массив структур
     FillStringsData (strings_data, strings_ptr, n_strings);
+    /// Добавляем массив структур в общую структуру
     text_info.strings_data = strings_data;
 
-    /// открываем файл для вывода
+    /// Открываем файл для вывода
     FILE* file_output = fopen ("Onegin_result.txt", "w");
 
-    /// сортируем по началу строк и выводим
+    /// Сортируем по началу строк и выводим
     DataSort (text_info, StringsCompare);
     fputs (FIRST_SORT, file_output);
     PrintText (text_info, file_output);
 
-    /// сортируем по концу строк и выводим
+    /// Сортируем по концу строк и выводим
     DataSort (text_info, StringsCompareReverse);
     fputs (SECOND_SORT, file_output);
     PrintText (text_info, file_output);
 
-    /// выводим оригинальный текст
+    /// Выводим оригинальный текст
     fputs (ORIGINAL_TEXT, file_output);
     PrintOriginalText (text_info, file_output);
 
-    /// закрываем файл для вывода
+    /// Закрываем файл для вывода
     fclose (file_output);
 
-    /// освобождаем память
+    /// Освобождаем память
     FreeMem (text_info.text);
     FreeMem (strings_ptr);
     FreeMem (text_info.strings_data);

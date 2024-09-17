@@ -17,7 +17,7 @@ void DataSwap (void* data1, void* data2, size_t len_data)
     assert (data2 != NULL);
     assert (data1 != data2);
 
-    /// меняем сначала по 8 байт
+    /// Меняем сначала по 8 байт
     long long int swap_ll = 0;
     long long* data1_ll = (long long *) data1;
     long long* data2_ll = (long long *) data2;
@@ -32,7 +32,7 @@ void DataSwap (void* data1, void* data2, size_t len_data)
     // символ на котором остановились
     size_t last_unswapped = sizeof (long long) * (len_data / sizeof (long long)); 
     
-    /// меняем остаток побайтово
+    /// Меняем остаток побайтово
     char swap_c = 0;
     char* data1_c = (char*) data1;
     char* data2_c = (char*) data2;
