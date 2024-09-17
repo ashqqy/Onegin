@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef PRINT_TEXT_FROM_STRUCT
 #define PRINT_TEXT_FROM_STRUCT
 

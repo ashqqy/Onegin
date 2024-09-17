@@ -1,3 +1,5 @@
+/// @file 
+
 #ifndef STRINGS_SWAP
 #define STRINGS_SWAP
 

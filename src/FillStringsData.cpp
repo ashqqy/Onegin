@@ -1,3 +1,5 @@
+/// @file
+
 #include <assert.h>
 
 #include "FillStringsData.h"
@@ -15,7 +17,7 @@ void FillStringsData (PtrAndLenString* strings_data, char** strings_ptr, int n_s
 
     for (int i = 0; i < n_strings; i++)
         {
-         // считаем длину как разность соседних указателей
+         /// считаем длину как разность соседних указателей
          *(strings_data + i) = {strings_ptr[i], (size_t) (strings_ptr[i + 1] - strings_ptr[i])}; 
         }
     }

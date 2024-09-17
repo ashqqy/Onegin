@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef FILL_STRINGS_DATA
 #define FILL_STRINGS_DATA
 

@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef STRINGS_COMPARE
 #define STRINGS_COMPARE
 

@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef STRINGS_COMPARE_REVERSE
 #define STRINGS_COMPARE_REVERSE
 

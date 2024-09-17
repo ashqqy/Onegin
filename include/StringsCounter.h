@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef STRINGS_COUNTER
 #define STRINGS_COUNTER
 

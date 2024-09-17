@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef CONSTANTS
 #define CONSTANTS
 
@@ -8,4 +10,4 @@ const char* const ORIGINAL_TEXT = "\n----------ОРИГИНАЛЬНЫЙ ТЕКС
 const int EQUAL_STRINGS = 0;
 const int COMPARE_ERROR = 999;
 
-#endif // CONSTANTD
+#endif // CONSTANTS

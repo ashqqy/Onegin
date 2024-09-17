@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef ONEGIN
 #define ONEGIN
 

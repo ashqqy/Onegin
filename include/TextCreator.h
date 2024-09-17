@@ -1,3 +1,5 @@
+/// @file
+
 #ifndef TEXT_CREATOR
 #define TEXT_CREATOR
 
