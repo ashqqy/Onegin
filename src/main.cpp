@@ -9,7 +9,7 @@
 
 //----------------------------------------------------------------
 
-int main (int argc, char** argv)
+int main (int argc, const char** argv)
     {
     /// Создаем структуру с информацией о тексте
     TextInfo text_info = {};
@@ -69,9 +69,9 @@ int main (int argc, char** argv)
     fclose (file_output);
 
     /// Освобождаем память
-    FreeMem (text_info.text);
-    FreeMem (strings_ptr);
-    FreeMem (text_info.strings_data);
+    free (text_info.text); text_info.text = NULL;
+    free (strings_ptr); strings_ptr = NULL;
+    free (text_info.strings_data); text_info.strings_data = NULL;
     }
 
 //----------------------------------------------------------------

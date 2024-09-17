@@ -8,6 +8,7 @@
 /// @brief Функция считает количество строк в массиве и заменяет '\ n' на '\ 0'
 /// @param[in] text Указатель на массив с текстом
 /// @param[out] n_strings Количество строк в массиве
+
 void StringsCounter (char* text, int* n_strings)
     {
     assert (text != NULL);

@@ -10,6 +10,7 @@
 /// @brief Функция создаёт массив с текстом на основе данных из файла
 /// @param[in] file_input указатель на файл
 /// @param[out] text указатель на начало массива с текстом
+
 void TextCreator (FILE* file_input, char** text)
     {
     assert (file_input != NULL);

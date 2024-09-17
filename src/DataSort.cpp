@@ -10,6 +10,7 @@
 /// @brief Функция сортировки
 /// @param[in] text_info Структура с информацией о тексте, который нужно отсортировать
 /// @param[in] CompareFunc Указатель на функцию компарации
+
 void DataSort (TextInfo text_info, compare_func_t CompareFunc)
     {
     assert (CompareFunc != NULL);

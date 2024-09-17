@@ -9,6 +9,7 @@
 /// @brief Функция, печатающая текст из массива
 /// @param text_info Структура с информацией о тексте
 /// @param file_output Указатель на файл для вывода
+
 void PrintText (TextInfo text_info, FILE* file_output)
     {
     assert (file_output != NULL);

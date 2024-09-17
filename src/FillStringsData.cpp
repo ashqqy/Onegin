@@ -10,6 +10,7 @@
 /// @param[out] strings_data массив структур с указателями на строки и их длинами
 /// @param[in] strings_ptr массив указателей на строки
 /// @param[in] n_strings количество строк 
+
 void FillStringsData (PtrAndLenString* strings_data, char** strings_ptr, int n_strings)
     {
     assert (strings_data != NULL);

@@ -10,6 +10,7 @@
 /// @param[in] strings_ptr массив указателей на строки текста
 /// @param[in] text указатель на массив с текстом
 /// @param[in] n_strings количество строк в тексте
+
 void FillPtrArray (char** strings_ptr, char* text, int n_strings)
     {
     assert (text != NULL);

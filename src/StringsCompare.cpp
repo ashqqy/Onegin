@@ -12,6 +12,7 @@
 /// @param[in] str1 Структура с информацией о первой строке
 /// @param[in] str2 Структура с информацией о второй строке
 /// @return если строки равны - 0, если строки не равны - разность ASCII кодов первых различающихся символов
+
 int StringsCompare (PtrAndLenString str1, PtrAndLenString str2)
     {
     assert (str1.ptr_str != NULL);
@@ -29,16 +30,16 @@ int StringsCompare (PtrAndLenString str1, PtrAndLenString str2)
 
     while ( i < str1_len  && j < str2_len )
         {
-        c1 = tolower (str1_ptr[i]);
-        c2 = tolower (str2_ptr[j]);
+        int c1 = tolower (str1_ptr[i]);
+        int c2 = tolower (str2_ptr[j]);
 
-        while ( isalpha (c1) == 0 ) // проверяем что символ первой строки - буква // || i == str1_len - 1
+        while ( isalpha (c1) == 0 || i == str1_len - 1) // проверяем что символ первой строки - буква 
             {
             ++i;
             c1 = tolower (str1_ptr[i]);
             }
 
-        while ( isalpha (c2) == 0 ) // проверяем что символ второй строки - буква // || j == str2_len - 1
+        while ( isalpha (c2) == 0 || j == str2_len - 1) // проверяем что символ второй строки - буква 
             {
             ++j;
             c2 = tolower (str2_ptr[j]);

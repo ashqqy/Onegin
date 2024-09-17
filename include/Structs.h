@@ -9,6 +9,7 @@ struct PtrAndLenString
     {
     /// @brief указатель на строку
     char* ptr_str;
+
     /// @brief длина строки
     size_t len_str;
     };
@@ -21,8 +22,10 @@ struct TextInfo
     {
     /// @brief указатель на начало текста
     char* text;
+
     /// @brief количество строк в тексте
     int n_strings;
+
     /// @brief Указатель на каждую строку и её размер
     PtrAndLenString* strings_data;
     };
