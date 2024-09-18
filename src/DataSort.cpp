@@ -19,7 +19,7 @@ void DataSort (TextInfo text_info, compare_func_t CompareFunc)
     {
     for (int j = i + 1; j < text_info.n_strings; j++)
         {
-        if (CompareFunc (text_info.strings_data[i], text_info.strings_data[j]) > 0)  //StringsCompare (text_info.strings_data[i].ptr_str, text_info.strings_data[j].ptr_str) > 0
+        if (CompareFunc (text_info.strings_data[i], text_info.strings_data[j]) > 0)
             DataSwap (&text_info.strings_data[i], &text_info.strings_data[j], SIZE_PtrAndLenString);
         }
     }

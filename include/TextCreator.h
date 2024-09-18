@@ -5,6 +5,6 @@
 
 #include <stdio.h>
 
-void TextCreator (FILE* file_input, char** text);
+size_t TextCreator (FILE* file_input, char** text);
 
 #endif //TEXT_CREATOR

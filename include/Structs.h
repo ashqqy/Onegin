@@ -1,4 +1,5 @@
 /// @file
+
 #ifndef STRUCTS
 #define STRUCTS
 

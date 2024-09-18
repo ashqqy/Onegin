@@ -5,6 +5,6 @@
 
 #include "Structs.h"
 
-void FillStringsData (PtrAndLenString* strings_data, char** strings_ptr, int n_strings);
+void FillStringsData (TextInfo* text_info, PtrAndLenString* strings_data);
 
 #endif //FILL_STRINGS_DATA

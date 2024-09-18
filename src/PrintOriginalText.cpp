@@ -16,10 +16,10 @@ void PrintOriginalText (TextInfo text_info, FILE* file_output)
     assert (file_output != NULL);
 
     char* ptr_printing_line = text_info.text;
-    for (int i = 0; i < text_info.n_strings; ++i)
+    for (int i = 0; i < text_info.n_strings + 1; ++i)
         {
         fputs (ptr_printing_line, file_output);
-        ptr_printing_line = strchr (ptr_printing_line, '\0') + 1; // почему не получается через стрлен?
+        ptr_printing_line += (size_t) strlen (ptr_printing_line) + 1;
         }
     }
 

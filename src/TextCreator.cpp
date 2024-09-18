@@ -10,8 +10,9 @@
 /// @brief Функция создаёт массив с текстом на основе данных из файла
 /// @param[in] file_input указатель на файл
 /// @param[out] text указатель на начало массива с текстом
+/// @return size_file_input - количество прочитанных символов (размер входного файла)
 
-void TextCreator (FILE* file_input, char** text)
+size_t TextCreator (FILE* file_input, char** text)
     {
     assert (file_input != NULL);
     
@@ -31,6 +32,9 @@ void TextCreator (FILE* file_input, char** text)
     /// Добавляем в последнюю строку файла \ r \ n
     *(*text + size_file_input) = '\r';
     *(*text + size_file_input + 1) = '\n';
+
+    /// Возвращаем количество прочитанных символов (размер входного файла)
+    return size_file_input;
     }
 
 //----------------------------------------------------------------
