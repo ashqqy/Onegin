@@ -13,7 +13,7 @@ void FillStringsData (TextInfo* text_info, PtrAndLenString* strings_data)
     {
     assert (strings_data != NULL);
 
-    strings_data[0].ptr_str = &(*text_info).text[0];
+    strings_data[0].ptr_str = &(*text_info).text[0]; // заполняем указатель на первую строку
     char* symb_ptr = &(*text_info).text[0];
 
     for (int i = 1; i < (*text_info).n_strings + 1; ++i) // +1 на указатель конца последней строки

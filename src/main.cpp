@@ -23,12 +23,12 @@ int main (int argc, const char** argv)
     /// Сортируем по началу строк и выводим
     DataSort (text_info, StringsCompare);
     fputs (FIRST_SORT, file_output);
-    PrintText (text_info, file_output);
+    PrintText (&text_info, file_output);
 
     /// Сортируем по концу строк и выводим
     DataSort (text_info, StringsCompareReverse);
     fputs (SECOND_SORT, file_output);
-    PrintText (text_info, file_output);
+    PrintText (&text_info, file_output);
 
     /// Выводим оригинальный текст
     fputs (ORIGINAL_TEXT, file_output);
